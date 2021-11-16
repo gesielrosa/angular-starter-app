@@ -1,6 +1,8 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
+const {environment} = require("./src/environments/environment");
+
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -25,11 +27,11 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/igo-client'),
+      dir: require('path').join(__dirname, './coverage/', environment.appId),
       subdir: '.',
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
+        {type: 'html'},
+        {type: 'text-summary'}
       ]
     },
     reporters: ['progress', 'kjhtml'],

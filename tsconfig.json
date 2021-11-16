@@ -16,12 +16,73 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false,
     "target": "es2017",
     "module": "es2020",
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@components/*": [
+        "src/app/components/*"
+      ],
+      "@constants/*": [
+        "src/app/constants/*"
+      ],
+      "@models/*": [
+        "src/app/models/*"
+      ],
+      "@pages/*": [
+        "src/app/pages/*"
+      ],
+      "@pipes/*": [
+        "src/app/pipes/*"
+      ],
+      "@animations/*": [
+        "src/app/animations/*"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
+      "@utils/*": [
+        "src/app/utils/*"
+      ],
+      "@modals/*": [
+        "src/app/modals/*"
+      ],
+      "@common/*": [
+        "src/app/common/*"
+      ],
+      "@controllers/*": [
+        "src/app/controllers/*"
+      ],
+      "@builders/*": [
+        "src/app/builders/*"
+      ],
+      "@guards/*": [
+        "src/app/guards/*"
+      ],
+      "@validators/*": [
+        "src/app/validators/*"
+      ],
+      "@env/*": [
+        "src/environments/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@e2e/*": [
+        "e2e/*"
+      ],
+      "@interceptors/*": [
+        "src/app/interceptors/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

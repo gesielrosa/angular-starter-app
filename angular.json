@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "igo-client": {
+    "my-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,9 +20,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/igo-client",
+            "outputPath": "dist/my-app/browser",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "main": "src/main.browser.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -49,12 +49,6 @@
                   "maximumError": "4kb"
                 }
               ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "outputHashing": "all"
             },
             "development": {
@@ -72,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "igo-client:build:production"
+              "browserTarget": "my-app:build:production"
             },
             "development": {
-              "browserTarget": "igo-client:build:development"
+              "browserTarget": "my-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "igo-client:build"
+            "browserTarget": "my-app:build"
           }
         },
         "test": {
@@ -103,9 +97,63 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/my-app/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": []
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "my-app:build:development",
+              "serverTarget": "my-app:server:development"
+            },
+            "production": {
+              "browserTarget": "my-app:build:production",
+              "serverTarget": "my-app:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "my-app:build:production",
+              "serverTarget": "my-app:server:production"
+            },
+            "development": {
+              "browserTarget": "my-app:build:development",
+              "serverTarget": "my-app:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
   },
-  "defaultProject": "igo-client"
+  "defaultProject": "my-app"
 }

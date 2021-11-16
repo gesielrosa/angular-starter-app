@@ -51,3 +51,10 @@ import 'zone.js';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+import 'globalthis/auto';
+
+declare global {
+  interface Window {
+    locale: 'en-us' | 'pt-br';
+  }
+}
