@@ -36,8 +36,8 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.0.2",
-    "@angular/cli": "~13.0.2",
+    "@angular-devkit/build-angular": "~13.1.4",
+    "@angular/cli": "~13.1.4",
     "@angular/compiler-cli": "~13.0.0",
     "@nguniversal/builders": "^13.0.1",
     "@types/cookie-parser": "^1.4.2",
