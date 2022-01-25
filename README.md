@@ -1,6 +1,6 @@
 # Angular Starter Application
 
-Angular version: `~13.0.0`
+Angular version: `13.1.3`
 
 ### Preconfigured
 ```
@@ -10,10 +10,11 @@ Angular version: `~13.0.0`
 - StorageService (replace localStorage to cookies storage)
 - Dotenv environments setup
 - registerLocaleData (pt)
+- ESLint
+- Prettier
 ```
 
 ### TODO
 ```
 - Improve documentation
-- Configure lint
 ```

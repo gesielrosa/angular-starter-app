@@ -7,7 +7,7 @@ require('dotenv').config();
 // `environment.ts` file structure
 const envConfigFile = `export const environment = {
   production: ${process.env['PRODUCTION'] || false},
-  appId: '${process.env['APP_ID'] || 'serverApp'}'
+  appId: '${process.env['APP_ID'] || 'my-app'}'
 };`;
 console.log(colors.magenta('The file `environment.ts` will be written with the following content: \n'));
 console.log(colors.brightGreen(envConfigFile + ' \n'));

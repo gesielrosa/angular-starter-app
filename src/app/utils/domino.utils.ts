@@ -1,5 +1,5 @@
 import * as domino from 'domino';
-import { PathLike, readFileSync } from 'fs';
+import {PathLike, readFileSync} from 'fs';
 
 export function applyDomino(global: any, templatePath: PathLike) {
   const template = readFileSync(templatePath).toString();
@@ -22,7 +22,7 @@ export function applyDomino(global: any, templatePath: PathLike) {
 function createTransformOptions() {
   const value = () => ({
     enumerable: true,
-    configurable: true
+    configurable: true,
   });
   return {value};
 }

@@ -1,16 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { CookieService } from '@gorniv/ngx-universal';
+import {CookieService} from 'ngx-cookie';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StorageService {
-
-  constructor(
-    private _cookieService: CookieService
-  ) {
-  }
+  constructor(private _cookieService: CookieService) {}
 
   public setItem(key: string, value: string): void {
     this._cookieService.put(key, value);
@@ -35,5 +31,4 @@ export class StorageService {
   public removeAll(): void {
     this._cookieService.removeAll();
   }
-
 }

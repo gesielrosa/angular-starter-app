@@ -1,17 +1,16 @@
-import { Inject, Injectable, InjectionToken, PLATFORM_ID } from '@angular/core';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import {Inject, Injectable, InjectionToken, PLATFORM_ID} from '@angular/core';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 
-import { REQUEST } from '@nguniversal/express-engine/tokens';
-import { TranslateService } from '@ngx-translate/core';
-import { Request } from 'express';
+import {REQUEST} from '@nguniversal/express-engine/tokens';
+import {TranslateService} from '@ngx-translate/core';
+import {Request} from 'express';
 
-import { StorageService } from '@services/storage.service';
+import {StorageService} from '@services/storage.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LanguageService {
-
   private _language: string;
 
   private readonly _isBrowser: boolean;
@@ -64,5 +63,4 @@ export class LanguageService {
       return browserLanguage?.includes('pt') ? 'pt-br' : 'en-us';
     }
   }
-
 }

@@ -10,6 +10,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "strictPropertyInitialization": false,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -17,9 +18,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "noImplicitAny": false,
-    "strictPropertyInitialization": false,
-    "target": "es2017",
-    "module": "es2020",
+    "strictNullChecks": false,
     "lib": [
       "es2020",
       "dom"
