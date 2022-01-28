@@ -6,10 +6,11 @@ import {StateTransferInitializerModule} from '@nguniversal/common';
 import {REQUEST} from '@nguniversal/express-engine/tokens';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 
-import {AppComponent} from '@app/app.component';
 import {AppModule} from './app.module';
+import {AppComponent} from './app.component';
 
 import {translateBrowserLoaderFactory} from '@common/translate-browser.loader';
+import {BrowserStateInterceptor} from '@interceptors/browser-transfer-state.interceptor';
 
 export function getRequest(): any {
   return {headers: {cookie: document.cookie}};
@@ -31,6 +32,11 @@ export function getRequest(): any {
   bootstrap: [AppComponent],
   providers: [
     {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BrowserStateInterceptor,
+      multi: true,
+    },
+    {
       // The server provides these in main.server
       provide: REQUEST,
       useFactory: getRequest,
@@ -45,4 +51,5 @@ export function getRequest(): any {
     },
   ],
 })
-export class AppBrowserModule {}
+export class AppBrowserModule {
+}

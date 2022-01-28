@@ -9,8 +9,9 @@ if (environment.production) {
 }
 
 function bootstrap() {
-  platformBrowserDynamic().bootstrapModule(AppBrowserModule)
-    .catch(err => console.error(err));
+  platformBrowserDynamic()
+    .bootstrapModule(AppBrowserModule)
+    .catch((err) => console.error(err));
 }
 
 if (document.readyState === 'complete') {
