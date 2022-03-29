@@ -10,7 +10,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {AppModule} from './app.module';
 import {AppComponent} from './app.component';
 
-import {translateServerLoaderFactory} from '@common/translate-server.loader';
+import {translateServerLoaderFactory} from '@loaders/translate-server.loader';
 import {ServerTransferStateInterceptor} from '@interceptors/server-transfer-state.interceptor';
 
 @NgModule({

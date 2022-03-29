@@ -5,7 +5,7 @@ import {REQUEST} from '@nguniversal/express-engine/tokens';
 import {TranslateService} from '@ngx-translate/core';
 import {Request} from 'express';
 
-import {StorageService} from '@services/storage.service';
+import {CookiesService} from '@services/cookies.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,12 +17,12 @@ export class LanguageService {
 
   constructor(
     private _translate: TranslateService,
-    private _storage: StorageService,
+    private _storage: CookiesService,
     @Inject(REQUEST) private _request: Request,
     @Inject(DOCUMENT) private _document: Document,
-    @Inject(PLATFORM_ID) PLATFORM_ID: InjectionToken<Object>
+    @Inject(PLATFORM_ID) private _platform_ID: InjectionToken<Object>
   ) {
-    this._isBrowser = isPlatformBrowser(PLATFORM_ID);
+    this._isBrowser = isPlatformBrowser(this._platform_ID);
   }
 
   public init(): void {

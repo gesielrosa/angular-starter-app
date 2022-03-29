@@ -3,18 +3,13 @@ import {BrowserTransferStateModule, TransferState} from '@angular/platform-brows
 import {HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import {StateTransferInitializerModule} from '@nguniversal/common';
 
-import {REQUEST} from '@nguniversal/express-engine/tokens';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 
 import {AppModule} from './app.module';
 import {AppComponent} from './app.component';
 
-import {translateBrowserLoaderFactory} from '@common/translate-browser.loader';
+import {translateBrowserLoaderFactory} from '@loaders/translate-browser.loader';
 import {BrowserStateInterceptor} from '@interceptors/browser-transfer-state.interceptor';
-
-export function getRequest(): any {
-  return {headers: {cookie: document.cookie}};
-}
 
 @NgModule({
   imports: [
@@ -35,11 +30,6 @@ export function getRequest(): any {
       provide: HTTP_INTERCEPTORS,
       useClass: BrowserStateInterceptor,
       multi: true,
-    },
-    {
-      // The server provides these in main.server
-      provide: REQUEST,
-      useFactory: getRequest,
     },
     {
       provide: 'ORIGIN_URL',

@@ -80,6 +80,9 @@
       ],
       "@interceptors/*": [
         "src/app/interceptors/*"
+      ],
+      "@loaders/*": [
+        "src/app/loaders/*"
       ]
     }
   },
