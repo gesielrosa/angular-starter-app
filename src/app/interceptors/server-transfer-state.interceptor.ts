@@ -9,7 +9,7 @@ export class ServerTransferStateInterceptor implements HttpInterceptor {
   constructor(private _transferState: TransferState) {
   }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       tap((event) => {
         if (event instanceof HttpResponse && (event.status === 200 || event.status === 202)) {

@@ -10,7 +10,7 @@ export class BrowserStateInterceptor implements HttpInterceptor {
   constructor(private transferState: TransferState) {
   }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (req.method === 'GET') {
       const key = makeStateKey(req.url);
       const storedResponse: string = this.transferState.get<string>(key, null);
